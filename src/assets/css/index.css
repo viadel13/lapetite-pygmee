@@ -1,0 +1,29 @@
+/* font-family: 'Amatic SC', sans-serif; */
+:root{
+  --font-default: "Roboto", sans-serif;
+  --font-primary: "Amatic SC", sans-serif;
+  --font-secondary: "Inter", sans-serif;
+}
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+  font-family: var(--font-default);
+}
+
+@keyframes imgRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating-avatar {
+  animation: imgRotate 50s linear infinite;
+}
