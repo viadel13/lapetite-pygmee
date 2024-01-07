@@ -7,22 +7,18 @@ const Apropos = () => {
   const [chargement, setChargement] = useState(true);
 
   useEffect(() => {
-    const gestionnaireChargement = () => {
+    const imageFond = new Image();
+    imageFond.src = heroIm;
+
+    const gestionnaireChargementImage = () => {
       setChargement(false);
     };
 
-    // Ajoutez l'événement 'load' au chargement du composant
-    window.addEventListener('load', gestionnaireChargement);
+    imageFond.addEventListener('load', gestionnaireChargementImage);
 
-    // Supprimez l'événement 'load' lors du démontage du composant
     return () => {
-      window.removeEventListener('load', gestionnaireChargement);
+      imageFond.removeEventListener('load', gestionnaireChargementImage);
     };
-  }, []);
-
-  useEffect(() => {
-    // Réinitialise le chargement chaque fois que le composant est monté
-    setChargement(false);
   }, []);
 
   return (
