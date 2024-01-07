@@ -43,8 +43,9 @@ const DrawerMenu = () => {
     fontWeight: 600,
     fontSize: '16px',
     color: '#7f7f90',
-    margin: '10px 0',
-    width:'100%',
+    margin: '0px 0',
+    display: 'block',
+    width: '100%',
 
     '&.active': {
       color: '#000',
@@ -92,8 +93,8 @@ const DrawerMenu = () => {
       </Box>
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText  primary={
+          <ListItemButton sx={{ '&:hover': { background: 'transparent', } }} disableRipple>
+            <ListItemText primary={
               <CustomStyled to="/">
                 Accueil
               </CustomStyled>
@@ -101,7 +102,7 @@ const DrawerMenu = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton sx={{ '&:hover': { background: 'transparent', } }} disableRipple >
             <ListItemText primary={
               <CustomStyled to="/about">
                 A propos
@@ -110,7 +111,7 @@ const DrawerMenu = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton sx={{ '&:hover': { background: 'transparent', } }} disableRipple >
             <ListItemText primary={
               <CustomStyled to="/menu">
                 Menu
@@ -119,7 +120,7 @@ const DrawerMenu = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton sx={{ '&:hover': { background: 'transparent', } }} disableRipple >
             <ListItemText primary={
               <CustomStyled to="/services">
                 Services
@@ -128,7 +129,7 @@ const DrawerMenu = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton sx={{ '&:hover': { background: 'transparent', } }} disableRipple >
             <ListItemText primary={
               <CustomStyled to="/galerie">
                 Galerie
@@ -137,7 +138,7 @@ const DrawerMenu = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton sx={{ '&:hover': { background: 'transparent', } }} disableRipple >
             <ListItemText primary={
               <CustomStyled to="/contact">
                 Contact

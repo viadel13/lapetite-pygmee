@@ -62,7 +62,7 @@ const Navbar = () => {
           <Stack direction='row' justifyContent='center' sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}  >
             <List sx={{ display: 'flex' }}>
               <ListItem disablePadding>
-                <ListItemButton disableGutters sx={{ '&:hover': { background: 'transparent', } }} disableRipple>
+                <ListItemButton disableGutters sx={{ '&:hover': { background: 'transparent', } }} disableRipple >
                   <ListItemText
                     primary={
                       <CustomStyled to="/">
