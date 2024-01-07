@@ -3,13 +3,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { keyframes } from '@mui/system';
 import { ShoppingCartOutlined } from "@mui/icons-material";
 import DrawerMenu from "../DrawerMenu/Index";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const underlineAnimation = keyframes({
     '0%': { width: '0%' },
     '100%': { width: '100%' },
   });
-  const CustomStyled = styled('a')({
+  const CustomStyled = styled(NavLink)({
     position: 'relative',
     textDecoration: 'none',
     fontWeight: 600,
@@ -34,6 +35,13 @@ const Navbar = () => {
         animation: `${underlineAnimation} 0.5s forwards`,
       },
     },
+    '&.active': {
+      color: '#000',
+      '&:after': {
+        width: '100%',
+        animation: `${underlineAnimation} 0.5s forwards`,
+      },
+    }
   });
 
   return (
@@ -57,42 +65,42 @@ const Navbar = () => {
                 <ListItemButton disableGutters sx={{ '&:hover': { background: 'transparent', } }} disableRipple>
                   <ListItemText
                     primary={
-                      <CustomStyled href="#">
+                      <CustomStyled to="/">
                         Accueil
                       </CustomStyled>
                     }
                   />
                   <ListItemText
                     primary={
-                      <CustomStyled href="#">
+                      <CustomStyled to="/about" >
                         A propos
                       </CustomStyled>
                     }
                   />
                   <ListItemText
                     primary={
-                      <CustomStyled href="#">
+                      <CustomStyled to="/menu">
                         Menu
                       </CustomStyled>
                     }
                   />
                   <ListItemText
                     primary={
-                      <CustomStyled href="#">
+                      <CustomStyled to="/services">
                         Services
                       </CustomStyled>
                     }
                   />
                   <ListItemText
                     primary={
-                      <CustomStyled href="#">
+                      <CustomStyled to="/galerie">
                         Galerie
                       </CustomStyled>
                     }
                   />
                   <ListItemText
                     primary={
-                      <CustomStyled href="#">
+                      <CustomStyled to="/contact">
                         Contact
                       </CustomStyled>
                     }

@@ -27,3 +27,7 @@ body{
 .rotating-avatar {
   animation: imgRotate 50s linear infinite;
 }
+
+.active{
+  color: 'red'
+}

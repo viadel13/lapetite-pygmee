@@ -11,15 +11,22 @@ import {
   Divider,
   Typography,
   Avatar,
-  IconButton
+  IconButton,
+  keyframes
 } from "@mui/material"
 import MenuIcon from '@mui/icons-material/Menu';
 import { Close } from "@mui/icons-material";
 import styled from "@emotion/styled";
+import { Link, NavLink } from "react-router-dom";
 
 const DrawerMenu = () => {
   const [state, setState] = useState({
     left: false,
+  });
+
+  const underlineAnimation = keyframes({
+    '0%': { width: '0%' },
+    '100%': { width: '100%' },
   });
 
 
@@ -31,12 +38,32 @@ const DrawerMenu = () => {
 
     setState({ ...state, [anchor]: open });
   };
-  const CustomStyled = styled('a')({
+  const CustomStyled = styled(NavLink)({
     textDecoration: 'none',
     fontWeight: 600,
     fontSize: '16px',
     color: '#7f7f90',
     margin: '10px 0',
+    width:'100%',
+
+    '&.active': {
+      color: '#000',
+      '&:after': {
+        width: '100%',
+      },
+    },
+
+    '&:after': {
+      content: '""',
+      position: 'absolute',
+      backgroundColor: '#ff3c78',
+      height: '2px',
+      width: '0',
+      left: '0',
+      bottom: '-5px',
+      transition: '0.3s',
+      margin: '10px 0px',
+    },
   })
   const list = (anchor) => (
     <Box
@@ -66,8 +93,8 @@ const DrawerMenu = () => {
       <List>
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={
-              <CustomStyled href="#">
+            <ListItemText  primary={
+              <CustomStyled to="/">
                 Accueil
               </CustomStyled>
             } />
@@ -76,7 +103,7 @@ const DrawerMenu = () => {
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemText primary={
-              <CustomStyled href="#">
+              <CustomStyled to="/about">
                 A propos
               </CustomStyled>
             } />
@@ -85,7 +112,7 @@ const DrawerMenu = () => {
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemText primary={
-              <CustomStyled href="#">
+              <CustomStyled to="/menu">
                 Menu
               </CustomStyled>
             } />
@@ -94,7 +121,7 @@ const DrawerMenu = () => {
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemText primary={
-              <CustomStyled href="#">
+              <CustomStyled to="/services">
                 Services
               </CustomStyled>
             } />
@@ -103,7 +130,7 @@ const DrawerMenu = () => {
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemText primary={
-              <CustomStyled href="#">
+              <CustomStyled to="/galerie">
                 Galerie
               </CustomStyled>
             } />
@@ -112,7 +139,7 @@ const DrawerMenu = () => {
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemText primary={
-              <CustomStyled href="#">
+              <CustomStyled to="/contact">
                 Contact
               </CustomStyled>
             } />
