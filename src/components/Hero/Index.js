@@ -3,7 +3,9 @@ import ndole from '../../assets/images/ndole2.png'
 import { PlayCircleOutlined } from '@mui/icons-material'
 const Hero = () => {
   return (
-    <Box
+    <Box bgcolor='#eee'>
+      <Container disableGutters sx={{ maxWidth: { xs: 'xs', sm: 'md', md: 'xs', lg: 'lg', xl: 'xs' } }}>
+      <Box
       alignItems='center'
       justifyContent='space-between'
       width='100%'
@@ -54,6 +56,9 @@ const Hero = () => {
 
 
     </Box>
+      </Container>
+    </Box>
+ 
   )
 }
 

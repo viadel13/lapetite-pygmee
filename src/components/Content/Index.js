@@ -8,11 +8,7 @@ const Content = () => {
   return (
     <Box>
       <Navbar />
-      <Box bgcolor='#eee'>
-        <Container disableGutters sx={{ maxWidth: { xs: 'xs', sm: 'md', md: 'xs', lg: 'lg', xl: 'xs' } }}>
-          <Outlet />
-        </Container>
-      </Box>
+      <Outlet />
     </Box>
   )
 }

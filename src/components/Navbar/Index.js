@@ -45,7 +45,7 @@ const Navbar = () => {
   });
 
   return (
-    <AppBar position="sticky" elevation={0} sx={{ bgcolor: 'white', top: 0, borderBottom: '1px solid #fff', padding: '10px 0' }} >
+    <AppBar position="sticky" elevation={0} sx={{ bgcolor: 'white', top: 0, borderBottom: '1px solid #eee', padding: '10px 0' }} >
       <Container disableGutters sx={{ maxWidth: { xs: 'xs', sm: 'md', md: 'xs', lg: 'lg', xl: 'xs' } }}>
         <Toolbar disableGutters sx={{ marginLeft: { xs: '12px', sm: '12px', md: '0', display: 'flex', justifyContent: 'space-between' } }}>
 
@@ -86,8 +86,8 @@ const Navbar = () => {
                   />
                   <ListItemText
                     primary={
-                      <CustomStyled to="/services">
-                        Services
+                      <CustomStyled to="/reservation">
+                        Reservation
                       </CustomStyled>
                     }
                   />

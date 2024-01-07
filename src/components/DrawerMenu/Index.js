@@ -122,8 +122,8 @@ const DrawerMenu = () => {
         <ListItem disablePadding>
           <ListItemButton sx={{ '&:hover': { background: 'transparent', } }} disableRipple >
             <ListItemText primary={
-              <CustomStyled to="/services">
-                Services
+              <CustomStyled to="/reservation">
+                Reservation
               </CustomStyled>
             } />
           </ListItemButton>
