@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Container, Paper, Stack, Typography } from '@mui/material';
+import { Backdrop, Box, CircularProgress, Container, Paper, Stack, Typography } from '@mui/material';
 import heroIm from '../../assets/images/about.jpg';
 
 const Apropos = () => {
@@ -26,7 +26,13 @@ const Apropos = () => {
       <Container disableGutters sx={{ maxWidth: { xs: 'xs', sm: 'md', md: 'xs', lg: 'lg', xl: 'xs' } }}>
         {
           chargement ? (
-            <p>chargement ... </p>
+            <Backdrop
+            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={true}
+            // onClick={handleClose}
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop>
           ) : (
             <Box
               display='flex'
