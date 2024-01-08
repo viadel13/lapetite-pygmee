@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Backdrop, Box, CircularProgress, Container, Paper, Stack, Typography } from '@mui/material';
+import { Avatar, Backdrop, Box, CircularProgress, Container, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemIcon, ListItemText, Paper, Stack, Typography } from '@mui/material';
 import heroIm from '../../assets/images/about.jpg';
+import about2 from '../../assets/images/about2.jpg';
+import { DoubleArrow, PlayCircle, PlayCircleTwoTone } from '@mui/icons-material';
 
 const Apropos = () => {
 
@@ -8,20 +10,33 @@ const Apropos = () => {
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
-    const imageFond = new Image();
-    imageFond.src = heroIm;
+    const image1 = new Image();
+    const image2 = new Image();
+
+    image1.src = heroIm;
+    image2.src = about2;
+
+    let imagesChargées = 0;
 
     const gestionnaireChargementImage = () => {
-      setChargement(false);
-      setLoad(false)
+      imagesChargées++;
+
+      if (imagesChargées === 2) {
+        // Les deux images sont chargées, désactive le préchargeur
+        setChargement(false);
+        setLoad(false);
+      }
     };
 
-    imageFond.addEventListener('load', gestionnaireChargementImage);
+    image1.addEventListener('load', gestionnaireChargementImage);
+    image2.addEventListener('load', gestionnaireChargementImage);
 
     return () => {
-      imageFond.removeEventListener('load', gestionnaireChargementImage);
+      image1.removeEventListener('load', gestionnaireChargementImage);
+      image2.removeEventListener('load', gestionnaireChargementImage);
     };
   }, []);
+
 
   return (
     <Box>
@@ -29,20 +44,15 @@ const Apropos = () => {
         {
           chargement ? (
             <Backdrop
-            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open={load}
-            // onClick={handleClose}
-          >
-            <CircularProgress color="inherit" />
-          </Backdrop>
-          ) : (
-            <Box
-              display='flex'
-              flexDirection='column'
-              justifyContent='center'
-              alignItems='center'
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open={load}
             >
-              <Stack mt={3} justifyContent='center' alignItems='center'>
+              <CircularProgress color="inherit" />
+            </Backdrop>
+          ) : (
+            <>
+
+              <Stack mt={3} spacing={2} justifyContent='center' alignItems='center'>
                 <Typography
                   variant='h6'
                   component='h2'
@@ -59,28 +69,123 @@ const Apropos = () => {
                 </Typography>
               </Stack>
 
-              <Box
-                display='flex'
-                alignItems="center"
-                justifyContent='center'
-                mt={6}
-                sx={{
-                  backgroundImage: `url(${heroIm})`,
-                  backgroundSize: 'cover',
-                  height: '400px',
-                  width: '100%',
-                  backgroundPosition: 'center',
-                  position: 'relative',
-                }}
-              >
+              <Grid container spacing={{ xs: 2, sm: 4, md: 8, lg: 8 }}>
+                <Grid item xs={12} sm={12} md={6}>
+                  <Box
+                    display='flex'
+                    justifyContent='center'
+                    alignItems='center'
+                  >
 
-                <Paper sx={{ position: 'absolute', padding: '40px', width: '80%', textAlign: 'center', fontWeight: 700, fontSize: '18px', backgroundColor: 'rgba(255, 255, 255, 0.7)' }}>
-                  <Typography variant='h4'>Reservation</Typography>
-                  <Typography variant='p' sx={{ color: '#ce1212' }}>+237 696746857</Typography>
-                </Paper>
 
-              </Box>
-            </Box>
+                    <Box
+                      display='flex'
+                      alignItems="flex-end"
+                      justifyContent='center'
+                      mt={6}
+                      padding="25px 0"
+                      sx={{
+                        backgroundImage: `url(${heroIm})`,
+                        backgroundSize: 'cover',
+                        height: {xs: '400px', sm: '400px', md: '70vh', lg: '80vh'},
+                        width: { xs: '100%', sm: '90%', md: '100%' },
+                        backgroundPosition: 'center',
+                        position: 'relative',
+                      }}
+                    >
+
+                      <Paper sx={{ position: 'absolute', padding: '40px', width: '80%', textAlign: 'center', fontWeight: 700, fontSize: '18px', backgroundColor: 'rgba(255, 255, 255, 0.7)' }}>
+                        <Typography variant='h4'>Reservation</Typography>
+                        <Typography variant='p' sx={{ color: '#ce1212' }}>+237 696746857</Typography>
+                      </Paper>
+                    </Box>
+
+
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6}>
+                  <Box
+                    display='flex'
+                    flexDirection='column'
+                    justifyContent='center'
+                    alignItems='center'
+                  >
+                    <Box sx={{ width: { xs: '100%', sm: '90%', md: '100%' } }}>
+                      <Stack mt={4} sx={{ p: { xs: '0 12px', sm: '0 12px', md: '0' } }}>
+                        <Typography variant='p' sx={{ fontStyle: 'italic', color: '#212529', lineHeight: '25px' }}>
+                          Bienvenue à notre restaurant camerounais, une oasis de saveurs authentiques et de traditions culinaires. Notre établissement est une célébration de la richesse gastronomique du Cameroun, offrant une expérience unique à chaque visite. Découvrez nos délices culinaires, préparés avec amour et dévouement par nos chefs talentueux.<br /><br />
+                          Points forts de notre restaurant :
+                        </Typography>
+                        <List sx={{ color: '#212529' }}>
+                          <ListItem disableGutters sx={{ py: 1 }}>
+                            <DoubleArrow sx={{ color: '#ce1212', mr: '2px' }} />
+                            <ListItemText
+                              primary='Cuisine traditionnelle camerounaise'
+                            />
+                          </ListItem>
+                          <ListItem disableGutters sx={{ py: 1 }}>
+                            <DoubleArrow sx={{ color: '#ce1212', mr: '2px' }} />
+                            <ListItemText
+                              primary='Plats préparés avec des ingrédients frais et locaux'
+                            />
+                          </ListItem>
+                          <ListItem disableGutters sx={{ py: 1 }}>
+                            <DoubleArrow sx={{ color: '#ce1212', mr: '2px' }} />
+                            <ListItemText
+                              primary='Ambiance chaleureuse et accueillante'
+                            />
+                          </ListItem>
+                          <ListItem disableGutters sx={{ py: 1 }}>
+                            <DoubleArrow sx={{ color: '#ce1212', mr: '2px' }} />
+                            <ListItemText
+                              primary='Service exceptionnel de notre équipe dévouée'
+                            />
+                          </ListItem>
+                          <ListItem disableGutters sx={{ py: 1 }}>
+                            <DoubleArrow sx={{ color: '#ce1212', mr: '2px' }} />
+                            <ListItemText
+                              primary='Large sélection de vins et boissons'
+                            />
+                          </ListItem>
+                          <ListItem disableGutters sx={{ py: 1 }}>
+                            <DoubleArrow sx={{ color: '#ce1212', mr: '2px' }} />
+                            <ListItemText
+                              primary='Événements spéciaux et soirées à thème'
+                            />
+                          </ListItem>
+                        </List>
+
+                        <Typography variant='p' sx={{ color: '#212529', lineHeight: '25px' }}>
+                          Chez nous, chaque repas est une expérience culinaire inoubliable, et nous sommes impatients de vous accueillir pour partager la richesse de notre culture à travers nos plats délicieux.
+                        </Typography>
+                      </Stack>
+                      <Box
+                        mt={4}
+                        mb={4}
+                        display='flex'
+                        alignItems="center"
+                        justifyContent='center'
+                        sx={{
+                          background: `linear-gradient(rgba(15, 23, 43, 0.8), rgba(15, 23, 40, 0.8)), url(${about2})`,
+                          backgroundSize: 'cover',
+                          minHeight: '40vh',
+                          backgroundPosition: 'center',
+                          position: 'relative',
+
+                        }}
+                      >
+                        <IconButton>
+                          <PlayCircleTwoTone sx={{ fontSize: '80px', color: '#ce1212' }} />
+                        </IconButton>
+
+                      </Box>
+                    </Box>
+                  </Box>
+                </Grid>
+              </Grid>
+
+            </>
+
           )
         }
 
