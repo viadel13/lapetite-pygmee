@@ -5,6 +5,7 @@ import heroIm from '../../assets/images/about.jpg';
 const Apropos = () => {
 
   const [chargement, setChargement] = useState(true);
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
     const imageFond = new Image();
@@ -12,6 +13,7 @@ const Apropos = () => {
 
     const gestionnaireChargementImage = () => {
       setChargement(false);
+      setLoad(false)
     };
 
     imageFond.addEventListener('load', gestionnaireChargementImage);
@@ -28,7 +30,7 @@ const Apropos = () => {
           chargement ? (
             <Backdrop
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open={true}
+            open={load}
             // onClick={handleClose}
           >
             <CircularProgress color="inherit" />

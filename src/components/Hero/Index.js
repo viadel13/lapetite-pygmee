@@ -4,8 +4,8 @@ import { PlayCircleOutlined } from '@mui/icons-material'
 import { useEffect, useState } from 'react';
 const Hero = () => {
 
-
   const [chargement, setChargement] = useState(true);
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
     const imageFond = new Image();
@@ -13,6 +13,7 @@ const Hero = () => {
 
     const gestionnaireChargementImage = () => {
       setChargement(false);
+      setLoad(false)
     };
 
     imageFond.addEventListener('load', gestionnaireChargementImage);
@@ -29,7 +30,7 @@ const Hero = () => {
           ? (
             <Backdrop
               sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-              open={true}
+              open={load}
               // onClick={handleClose}
             >
               <CircularProgress color="inherit" />
