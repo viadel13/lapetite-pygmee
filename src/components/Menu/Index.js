@@ -33,8 +33,11 @@ const Menu = () => {
 
           <Box mt={4} sx={{ width: '100%', typography: 'body1' }}>
             <TabContext value={value}>
-              <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList onChange={handleChange}   variant={matches ? 'standart' : 'scrollable'}
+              <Box sx={{ borderBottom: 1, border: 'none' }}>
+                <TabList 
+                  onChange={handleChange} 
+                  variant={matches ? 'standart' : 'scrollable'}
+                  sx={{ "& .Mui-selected": { color: '#ce1212' }, "& .MuiTabs-indicator": { backgroundColor: '#ce1212' } }}
                   scrollButtons
                   centered= {matches ? true : false}
                   allowScrollButtonsMobile aria-label="lab API tabs example"
@@ -44,9 +47,18 @@ const Menu = () => {
                   <Tab label="Végétarien" value="3" />
                 </TabList>
               </Box>
-              <TabPanel value="1">Item One</TabPanel>
-              <TabPanel value="2">Item Two</TabPanel>
-              <TabPanel value="3">Item Three</TabPanel>
+              <TabPanel value="1">
+                <Typography sx={{textAlign: 'center', color: '#676775'}}>Menu</Typography>
+                <Typography sx={{textAlign: 'center', color: '#ce1212', fontWeight: 600, fontSize: "36px"}}>Traditionnel</Typography>
+              </TabPanel>
+              <TabPanel value="2">
+              <Typography sx={{textAlign: 'center', color: '#676775'}}>Menu</Typography>
+                <Typography sx={{textAlign: 'center', color: '#ce1212', fontWeight: 600, fontSize: "36px"}}>Grillades</Typography>
+              </TabPanel>
+              <TabPanel value="3">
+              <Typography sx={{textAlign: 'center', color: '#676775'}}>Menu</Typography>
+                <Typography sx={{textAlign: 'center', color: '#ce1212', fontWeight: 600, fontSize: "36px"}}>Végétarien</Typography>
+              </TabPanel>
             </TabContext>
           </Box>
         </>
