@@ -2,7 +2,6 @@ import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Avatar, Box, Button, Container, Divider, Grid, Paper, Stack, Tab, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import ndole from '../../assets/images/ndole.png';
-import 'animate.css';
 import { useState } from 'react';
 
 const Menu = () => {
