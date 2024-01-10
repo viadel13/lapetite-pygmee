@@ -52,7 +52,7 @@ const Apropos = () => {
           ) : (
             <>
 
-              <Stack mt={3} spacing={2} justifyContent='center' alignItems='center'>
+              <Stack className='animate__animated animate__slideInUp animate__fadeIn' mt={3} spacing={2} justifyContent='center' alignItems='center'>
                 <Typography
                   variant='h6'
                   component='h2'
@@ -69,7 +69,7 @@ const Apropos = () => {
                 </Typography>
               </Stack>
 
-              <Grid container spacing={{ xs: 2, sm: 4, md: 8, lg: 8 }}>
+              <Grid container spacing={{ xs: 2, sm: 4, md: 8, lg: 8 }} className='animate__animated animate__slideInUp animate__fadeIn' >
                 <Grid item xs={12} sm={12} md={6}>
                   <Box
                     display='flex'

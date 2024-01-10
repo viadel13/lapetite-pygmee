@@ -31,7 +31,7 @@ const Hero = () => {
             <Backdrop
               sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
               open={load}
-              // onClick={handleClose}
+            // onClick={handleClose}
             >
               <CircularProgress color="inherit" />
             </Backdrop>
@@ -48,16 +48,20 @@ const Hero = () => {
                 minHeight: '100vh',
                 alignItems: { xs: 'stretch', sm: 'stretch', md: 'center' },
                 backgroundSize: 'cover',
-                overflowX: { xs: 'hidden', md: 'none' },
+                overflow: { xs: 'hidden', md: 'hidden' },
                 padding: { xs: '100px 0px 60px 0px', sm: '100px 0px 60px 0px', md: '90px 0px 60px 0px' }
               }}
               columnGap={20}
             >
 
-              <Box px={2} flex={1} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden' }}>
-                <Avatar className='rotating-avatar ' sx={{ borderRadius: 0, width: { xs: '100%', sm: '70%', md: '100%' }, height: '80%' }} src={ndole} alt='ndole' />
+              <Box px={2} flex={1} className='animate__animated animate__zoomIn' sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden' }}>
+
+                <Avatar className='rotating-avatar' sx={{ borderRadius: 0, width: { xs: '100%', sm: '70%', md: '100%' }, height: '80%' }} src={ndole} alt='ndole' />
+
               </Box>
-              <Box flex={1} display='flex' sx={{ flexDirection: { xs: 'column', sm: 'column', md: 'column' }, alignItems: { xs: 'center', sm: 'center', md: 'stretch' }, justifyContent: 'center' }}>
+
+
+              <Box flex={1} className='animate__animated animate__slideInUp animate__fadeIn' display='flex' sx={{ flexDirection: { xs: 'column', sm: 'column', md: 'column' }, alignItems: { xs: 'center', sm: 'center', md: 'stretch' }, justifyContent: 'center' }}>
                 <Typography
                   variant='h6'
                   mt={4}
