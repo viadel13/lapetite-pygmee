@@ -1,4 +1,4 @@
-import { Avatar, Backdrop, Box, Button, CircularProgress, Container, FormHelperText, InputAdornment, OutlinedInput, Stack, TextField, Typography, styled } from '@mui/material';
+import { Avatar, Backdrop, Box, Button, CircularProgress, Container, FormHelperText, Grid, InputAdornment, OutlinedInput, Stack, TextField, Typography, styled } from '@mui/material';
 import { DateField, TimeField } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import reserv from '../../assets/images/reservation.jpg'
@@ -83,7 +83,7 @@ const Reservation = () => {
   })
 
   return (
-    <Box>
+    <Box mb={4}>
       <Container disableGutters sx={{ maxWidth: { xs: 'xs', sm: 'md', md: 'xs', lg: 'lg', xl: 'xs' } }}>
         {chargement
 
@@ -116,150 +116,151 @@ const Reservation = () => {
                   avec nous
                 </Typography>
               </Stack>
-              <Container>
-                <Avatar src={reserv} alt='reservation' sx={{ borderRadius: 0, width: '100%', height: '60vh' }} />
-                <Box
-                  onSubmit={formik.handleSubmit}
-                  component="form"
-                  noValidate
-                  autoComplete="off"
-                  display='flex'
-                  flexDirection='column'
-                  alignItems='center'
-                  gap={3}
-                  justifyContent='center'
-                  sx={{
-                    padding: '20px'
-                  }}
-                  bgcolor='#eee'
-                >
-                  <div style={{ width: '100%' }}>
-                    <TextField
-                      fullWidth
-                      sx={{ backgroundColor: 'white' }}
-                      name="nom"
-                      error={formik.touched.nom && formik.errors.nom ? true : false}
-                      onBlur={formik.handleBlur}
-                      onChange={formik.handleChange}
-                      value={formik.values.nom}
-                      placeholder="Nom"
-                    />
-                    {formik.touched.nom && formik.errors.nom && <FormHelperText sx={{ color: 'red' }}>{formik.errors.nom}</FormHelperText>}
-                  </div>
-                  <div style={{ width: '100%' }}>
-                    <TextField
-                      fullWidth
-                      sx={{ backgroundColor: 'white' }}
-                      type='email'
-                      onBlur={formik.handleBlur}
-                      error={formik.touched.email && formik.errors.email ? true : false}
-                      name="email"
-                      id='email'
-                      value={formik.values.email}
-                      onChange={formik.handleChange}
-                      placeholder="Email"
-                    />
-                    {formik.touched.email && formik.errors.email && <FormHelperText sx={{ color: 'red' }}>{formik.errors.email}</FormHelperText>}
-
-                  </div>
-                  <div style={{ width: '100%' }}>
-                    <TextField
-                      fullWidth
-                      sx={{ backgroundColor: 'white' }}
-                      type='number'
-                      id="outlined-start-adornment"
-                      name="phone"
-                      error={formik.touched.phone && formik.errors.phone ? true : false}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.phone}
-                      placeholder="Phone"
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            +237
-                          </InputAdornment>
-                        ),
+              <Container disableGutters>
+                <Grid container>
+                  <Grid item xs={12} md={6}>
+                    <Avatar src={reserv} alt='reservation' sx={{ borderRadius: 0, width: '100%', height: {xs: '60vh', sm: '60vh', md: '100%'} }} />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <Box
+                      onSubmit={formik.handleSubmit}
+                      component="form"
+                      noValidate
+                      autoComplete="off"
+                      display='flex'
+                      flexDirection='column'
+                      alignItems='center'
+                      gap={3}
+                      justifyContent='center'
+                      sx={{
+                        padding: '20px'
                       }}
-                    />
-                    {formik.touched.phone && formik.errors.phone && <FormHelperText sx={{ color: 'red' }}>{formik.errors.phone}</FormHelperText>}
-                  </div>
+                      bgcolor='#eee'
+                    >
+                      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} style={{ width: '100%' }}>
+                        <div style={{ width: '100%' }}>
+                          <TextField
+                            fullWidth
+                            sx={{ backgroundColor: 'white' }}
+                            name="nom"
+                            error={formik.touched.nom && formik.errors.nom ? true : false}
+                            onChange={formik.handleChange}
+                            value={formik.values.nom}
+                            placeholder="Nom"
+                          />
+                          {formik.touched.nom && formik.errors.nom && <FormHelperText sx={{ color: 'red' }}>{formik.errors.nom}</FormHelperText>}
+                        </div>
+                        <div style={{ width: '100%' }}>
+                          <TextField
+                            fullWidth
+                            sx={{ backgroundColor: 'white' }}
+                            type='email'
+                            error={formik.touched.email && formik.errors.email ? true : false}
+                            name="email"
+                            id='email'
+                            value={formik.values.email}
+                            onChange={formik.handleChange}
+                            placeholder="Email"
+                          />
+                          {formik.touched.email && formik.errors.email && <FormHelperText sx={{ color: 'red' }}>{formik.errors.email}</FormHelperText>}
 
-                  <DateField
-                    defaultValue={formik.values.time}
-                    onChange={(date) => formik.setFieldValue('date', date)}
-                    fullWidth sx={{ background: 'white' }}
-
-                  />
-
-                  <TimeField
-                    defaultValue={formik.values.date}
-                    onChange={(time) => formik.setFieldValue('time', time)}
-                    fullWidth
-                    sx={{ background: 'white' }}
-                  />
-
-                  <div style={{ width: '100%' }}>
-                    <TextField
-                      fullWidth
-                      sx={{ backgroundColor: 'white' }}
-                      type='number'
-                      name="nbrePersonne"
-                      onBlur={formik.handleBlur}
-                      onChange={formik.handleChange}
-                      value={formik.values.nbrePersonne}
-                      error={formik.touched.nbrePersonne && formik.errors.nbrePersonne ? true : false}
-                      placeholder="Nombre de personnes"
-                    />
-                    {formik.touched.nbrePersonne && formik.errors.nbrePersonne && <FormHelperText sx={{ color: 'red' }}>{formik.errors.nbrePersonne}</FormHelperText>}
-                  </div>
-
-                  <div style={{ width: '100%' }}>
-                    <TextField
-                      fullWidth
-                      rows={5}
-                      multiline
-                      placeholder='Messages'
-                      sx={{ background: 'white' }}
-                      name="messages"
-                      onBlur={formik.handleBlur}
-                      onChange={formik.handleChange}
-                      value={formik.values.messages}
-                      error={formik.touched.messages && formik.errors.messages ? true : false}
-                    />
-                    {formik.touched.messages && formik.errors.messages && <FormHelperText sx={{ color: 'red' }}>{formik.errors.messages}</FormHelperText>}
-                  </div>
-                  {
-                    !load ? (
-                      <Button
-                        variant='contained'
-                        disableElevation
-                        type='submit'
-                        sx={{
-                          backgroundColor: '#ce1212',
-                          padding: '8px 20px',
-                          '&:hover': {
-                            backgroundColor: '#ce1212',
-                          }
-                        }}
-                      >Reserver
-                      </Button>
-                    )
-                      : (
-                        <LoadingButton
-                          loading={true}
-                          loadingPosition="center"
-                          variant="contained"
-                          sx={{ padding: '8px 20px' }}
-                        >
-                          <span>disabled</span>
-                        </LoadingButton>
-                      )
-                  }
-
-                </Box>
-
-
+                        </div>
+                      </Stack>
+                      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} style={{ width: '100%' }}>
+                        <div style={{ width: '100%' }}>
+                          <TextField
+                            fullWidth
+                            sx={{ backgroundColor: 'white' }}
+                            type='number'
+                            id="outlined-start-adornment"
+                            name="phone"
+                            error={formik.touched.phone && formik.errors.phone ? true : false}
+                            onChange={formik.handleChange}
+                            value={formik.values.phone}
+                            placeholder="Phone"
+                            InputProps={{
+                              startAdornment: (
+                                <InputAdornment position="start">
+                                  +237
+                                </InputAdornment>
+                              ),
+                            }}
+                          />
+                          {formik.touched.phone && formik.errors.phone && <FormHelperText sx={{ color: 'red' }}>{formik.errors.phone}</FormHelperText>}
+                        </div>
+                        <div style={{ width: '100%' }}>
+                          <TextField
+                            fullWidth
+                            sx={{ backgroundColor: 'white' }}
+                            type='number'
+                            name="nbrePersonne"
+                            onChange={formik.handleChange}
+                            value={formik.values.nbrePersonne}
+                            error={formik.touched.nbrePersonne && formik.errors.nbrePersonne ? true : false}
+                            placeholder="Nombre de personnes"
+                          />
+                          {formik.touched.nbrePersonne && formik.errors.nbrePersonne && <FormHelperText sx={{ color: 'red' }}>{formik.errors.nbrePersonne}</FormHelperText>}
+                        </div>
+                      </Stack>
+                      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} style={{ width: '100%' }}>
+                        <DateField
+                          defaultValue={formik.values.time}
+                          onChange={(date) => formik.setFieldValue('date', date)}
+                          fullWidth sx={{ background: 'white' }}
+                        />
+                        <TimeField
+                          defaultValue={formik.values.date}
+                          onChange={(time) => formik.setFieldValue('time', time)}
+                          fullWidth
+                          sx={{ background: 'white' }}
+                        />
+                      </Stack>
+                      <>
+                        <div style={{ width: '100%' }}>
+                          <TextField
+                            fullWidth
+                            rows={5}
+                            multiline
+                            placeholder='Messages'
+                            sx={{ background: 'white' }}
+                            name="messages"
+                            onChange={formik.handleChange}
+                            value={formik.values.messages}
+                            error={formik.touched.messages && formik.errors.messages ? true : false}
+                          />
+                          {formik.touched.messages && formik.errors.messages && <FormHelperText sx={{ color: 'red' }}>{formik.errors.messages}</FormHelperText>}
+                        </div>
+                        {
+                          !load ? (
+                            <Button
+                              variant='contained'
+                              disableElevation
+                              type='submit'
+                              sx={{
+                                backgroundColor: '#ce1212',
+                                padding: '8px 20px',
+                                '&:hover': {
+                                  backgroundColor: '#ce1212',
+                                }
+                              }}
+                            >Reserver
+                            </Button>
+                          )
+                            : (
+                              <LoadingButton
+                                loading={true}
+                                loadingPosition="center"
+                                variant="contained"
+                                sx={{ padding: '8px 20px' }}
+                              >
+                                <span>disabled</span>
+                              </LoadingButton>
+                            )
+                        }
+                      </>
+                    </Box>
+                  </Grid>
+                </Grid>
               </Container>
             </>
 

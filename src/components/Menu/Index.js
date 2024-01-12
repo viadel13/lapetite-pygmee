@@ -12,7 +12,7 @@ const Menu = () => {
     setValue(newValue);
   };
   return (
-    <Box>
+    <Box mb={4}>
       <Container disableGutters sx={{ maxWidth: { xs: 'xs', sm: 'md', md: 'xs', lg: 'lg', xl: 'xs' } }}>
         <>
           <Stack mt={3} spacing={2} justifyContent='center' alignItems='center'>
