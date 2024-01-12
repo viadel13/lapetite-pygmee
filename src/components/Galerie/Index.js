@@ -1,4 +1,4 @@
-import { Avatar, Box, Container, Stack, Typography } from '@mui/material'
+import { Avatar, Box, Container, Skeleton, Stack, Typography } from '@mui/material'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import gal1 from '../../assets/images/gal1.jpg'
 import gal2 from '../../assets/images/gal2.jpg'
@@ -21,10 +21,12 @@ import 'lightgallery/css/lg-share.css';
 // import plugins if you need
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
+import { useState } from 'react';
 
 const Galerie = () => {
   const matchesMD = useMediaQuery('(min-width: 600px)');
   const matchesLG = useMediaQuery('(min-width: 1024px)');
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const images = [
     { src: gal1, alt: 'gal1' },
@@ -34,8 +36,12 @@ const Galerie = () => {
     { src: gal6, alt: 'gal6' },
   ];
 
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  }
+
   return (
-    <Box  bgcolor='#eee' minHeight= '100vh'>
+    <Box bgcolor='#eee' minHeight='100vh'>
       <Container disableGutters sx={{ maxWidth: { xs: 'xs', sm: 'md', md: 'xs', lg: 'lg', xl: 'xs' } }}>
         <>
           <Stack pt={4} spacing={2} justifyContent='center' alignItems='center'>
@@ -82,7 +88,23 @@ const Galerie = () => {
                         plugins={[lgThumbnail, lgZoom]}
                       >
                         <a href={i.src}>
-                          <Avatar sx={{ borderRadius: 0, width: '100%', height: '30vh', objectFit: 'cover' }} src={i.src} alt={i.alt} />
+                          <Skeleton
+                            sx={{ bgcolor: 'grey.900',display: imageLoaded ? 'none' : 'block'}}
+                            variant="rectangular"
+                            width='100%'
+                            height="30vh"
+                          />
+                          <Avatar
+                            sx={{
+                              borderRadius: 0,
+                              width: '100%',
+                              height: '30vh',
+                              objectFit: 'cover',
+                              display: imageLoaded ? 'block' : 'none'
+                            }}
+                            src={i.src} alt={i.alt}
+                            onLoad={handleImageLoad}
+                          />
                         </a>
                       </LightGallery>
                     </SwiperSlide>
