@@ -39,7 +39,6 @@ const Galerie = () => {
   const handleImageLoad = () => {
     setImageLoaded(true);
   }
-
   return (
     <Box bgcolor='#eee' minHeight='100vh'>
       <Container disableGutters sx={{ maxWidth: { xs: 'xs', sm: 'md', md: 'xs', lg: 'lg', xl: 'xs' } }}>
