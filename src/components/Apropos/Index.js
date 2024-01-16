@@ -3,15 +3,23 @@ import { Avatar, Backdrop, Box, CircularProgress, Container, Grid, IconButton, L
 import heroIm from '../../assets/images/about.jpg';
 import about2 from '../../assets/images/about2.jpg';
 import { DoubleArrow, PlayCircle, PlayCircleTwoTone } from '@mui/icons-material';
+import { Blurhash } from "react-blurhash";
 
 const Apropos = () => {
+
+  const blurhashValue = "L5Bz2z00K-R4-.4:-;ro00_3s*XB";
+  const [loadImage, setLoadImage] = useState(false)
+
+  const handleLoad = () => {
+    setLoadImage(true)
+  }
 
   return (
     <Box>
       <Container disableGutters sx={{ maxWidth: { xs: 'xs', sm: 'md', md: 'xs', lg: 'lg', xl: 'xs' } }}>
         <>
 
-          <Stack className='animate__animated animate__slideInUp animate__fadeIn' mt={3} spacing={2} justifyContent='center' alignItems='center'>
+          <Stack mt={3} spacing={2} justifyContent='center' alignItems='center'>
             <Typography
               variant='h6'
               component='h2'
@@ -51,13 +59,18 @@ const Apropos = () => {
                   }}
                 >
 
+                  {
+                    !loadImage && <Blurhash hash={blurhashValue} style={{display:'block', width: '100%', height: '100%'}}/>
+                  }
+
                   <img
                     src={heroIm}
                     alt='d'
                     width='100%'
                     height='100%'
                     style={{ objectFit: 'cover' }}
-                  />
+                    onLoad={handleLoad}
+                  /> 
 
                   <Paper sx={{ position: 'absolute', mb: '10px', padding: '40px', width: '80%', textAlign: 'center', fontWeight: 700, fontSize: '18px', backgroundColor: 'rgba(255, 255, 255, 0.7)' }}>
                     <Typography variant='h4'>Reservation</Typography>
