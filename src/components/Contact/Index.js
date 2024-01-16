@@ -1,5 +1,5 @@
 import { Call, ImportContacts, Mail, Share } from '@mui/icons-material'
-import { Avatar, Box, Button, Container, FormHelperText, Grid, Paper, Stack, TextField, Typography } from '@mui/material'
+import { Avatar, Box, Button, CircularProgress, Container, FormHelperText, Grid, Paper, Stack, TextField, Typography } from '@mui/material'
 import { toast } from "react-toastify";
 import { useFormik } from "formik";
 import { useState } from 'react';
@@ -8,6 +8,11 @@ import { LoadingButton } from '@mui/lab';
 
 const Contact = () => {
   const [load, setLoad] = useState(false);
+  const [loadIframe, setLoadIframe] = useState(false);
+
+  const handleLoadIframe = () => {
+    setLoadIframe(true);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -78,15 +83,36 @@ const Contact = () => {
             </Typography>
           </Stack>
           <Box width="100%" mt={4} px={1}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.0636656294396!2d13.677537475709395!3d4.582591942668631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1092993e3d071ef7%3A0xe5314dff0a7b3870!2sRestaurant%20La%20Petite%20Pygm%C3%A9e!5e0!3m2!1sfr!2scm!4v1705312752906!5m2!1sfr!2scm"
-              width="100%"
-              height="450"
-              style={{ border: "0" }}
-              allowFullScreen
-              loading="lazy"
-            >
-            </iframe>
+            {
+              !loadIframe ? (
+                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                  <CircularProgress sx={{color: '#ce1212'}} />
+                </Box>
+              ) : (
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.0636656294396!2d13.677537475709395!3d4.582591942668631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1092993e3d071ef7%3A0xe5314dff0a7b3870!2sRestaurant%20La%20Petite%20Pygm%C3%A9e!5e0!3m2!1sfr!2scm!4v1705312752906!5m2!1sfr!2scm"
+                  width="100%"
+                  height="450"
+                  style={{ border: "0" }}
+                  allowFullScreen
+                >
+                </iframe>
+              )
+
+            }
+
+            <Box visibility='hidden' position='absolute'>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.0636656294396!2d13.677537475709395!3d4.582591942668631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1092993e3d071ef7%3A0xe5314dff0a7b3870!2sRestaurant%20La%20Petite%20Pygm%C3%A9e!5e0!3m2!1sfr!2scm!4v1705312752906!5m2!1sfr!2scm"
+                width="100%"
+                height="450"
+                style={{ border: "0" }}
+                allowFullScreen
+                onLoad={handleLoadIframe}
+              >
+              </iframe>
+            </Box>
+
 
             <Stack mt={4}>
               <Grid container spacing={2}>
@@ -153,35 +179,35 @@ const Contact = () => {
                   boxShadow: '0 0 30px rgba(0, 0, 0, 0.08)'
                 }}
               >
-                <Stack width='100%' gap={2} sx={{display: 'flex', flexDirection:{xs: 'column', sm: 'column', md: 'column', lg: 'row'}}}>
+                <Stack width='100%' gap={2} sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'column', md: 'column', lg: 'row' } }}>
 
-                <div style={{ width: '100%' }}>
-                  <TextField
-                    fullWidth
-                    sx={{ backgroundColor: 'white' }}
-                    name="nom"
-                    error={formik.touched.nom && formik.errors.nom ? true : false}
-                    onChange={formik.handleChange}
-                    value={formik.values.nom}
-                    placeholder="Nom"
-                  />
-                  {formik.touched.nom && formik.errors.nom && <FormHelperText sx={{ color: 'red' }}>{formik.errors.nom}</FormHelperText>}
-                </div>
-                <div style={{ width: '100%' }}>
-                  <TextField
-                    fullWidth
-                    sx={{ backgroundColor: 'white' }}
-                    type='email'
-                    error={formik.touched.email && formik.errors.email ? true : false}
-                    name="email"
-                    id='email'
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    placeholder="Email"
-                  />
-                  {formik.touched.email && formik.errors.email && <FormHelperText sx={{ color: 'red' }}>{formik.errors.email}</FormHelperText>}
-                </div>
-                                    
+                  <div style={{ width: '100%' }}>
+                    <TextField
+                      fullWidth
+                      sx={{ backgroundColor: 'white' }}
+                      name="nom"
+                      error={formik.touched.nom && formik.errors.nom ? true : false}
+                      onChange={formik.handleChange}
+                      value={formik.values.nom}
+                      placeholder="Nom"
+                    />
+                    {formik.touched.nom && formik.errors.nom && <FormHelperText sx={{ color: 'red' }}>{formik.errors.nom}</FormHelperText>}
+                  </div>
+                  <div style={{ width: '100%' }}>
+                    <TextField
+                      fullWidth
+                      sx={{ backgroundColor: 'white' }}
+                      type='email'
+                      error={formik.touched.email && formik.errors.email ? true : false}
+                      name="email"
+                      id='email'
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                      placeholder="Email"
+                    />
+                    {formik.touched.email && formik.errors.email && <FormHelperText sx={{ color: 'red' }}>{formik.errors.email}</FormHelperText>}
+                  </div>
+
                 </Stack>
                 <div style={{ width: '100%' }}>
                   <TextField
@@ -245,7 +271,7 @@ const Contact = () => {
 
         </>
       </Container>
-    </Box>
+    </Box >
   )
 }
 
