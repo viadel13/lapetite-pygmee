@@ -27,8 +27,6 @@ const Hero = () => {
 
             <Avatar 
               className='rotating-avatar'
-
-              loading='lazy' 
               sx={{ borderRadius: 0, width: { xs: '100%', sm: '70%', md: '100%' }, height: '80%' }} 
               src={ndole} 
               alt='ndole' 

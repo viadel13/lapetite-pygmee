@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, Backdrop, Box, CircularProgress, Container, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemIcon, ListItemText, Paper, Stack, Typography } from '@mui/material';
-import heroIm from '../../assets/images/about.webp';
+import heroIm from '../../assets/images/about.jpg';
 import about2 from '../../assets/images/about2.jpg';
 import { DoubleArrow, PlayCircle, PlayCircleTwoTone } from '@mui/icons-material';
 
@@ -51,21 +51,13 @@ const Apropos = () => {
                   }}
                 >
 
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcSet={`${heroIm}?width=100 100w, ${heroIm}?width=200 200w, ${heroIm}?width=400 400w, ${heroIm}?width=800 800w`}
-                    />
-                    <img src={heroIm} alt='d' width='100%' height='100%' />
-                  </picture>
-
-                  {/* <img
+                  <img
                     src={heroIm}
                     alt='d'
                     width='100%'
                     height='100%'
                     style={{ objectFit: 'cover' }}
-                  /> */}
+                  />
 
                   <Paper sx={{ position: 'absolute', mb: '10px', padding: '40px', width: '80%', textAlign: 'center', fontWeight: 700, fontSize: '18px', backgroundColor: 'rgba(255, 255, 255, 0.7)' }}>
                     <Typography variant='h4'>Reservation</Typography>
