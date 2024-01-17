@@ -40,13 +40,13 @@ const Details = () => {
             <Grid item xs={12} sm={6}>
               <Box width='100%'>
                 <Carousel showIndicators={false} showArrows={false} emulateTouch >
-                  <div style={{height: '60vh'}} >
+                  <div  >
                     <img width='100%' height='100%' src={state.image} alt='sds' style={{ borderRadius: '8px' }} />
                   </div>
-                  <div style={{height: '60vh'}} >
+                  <div >
                     <img width='100%' height='100%' src={state.image}  alt='sds' style={{ borderRadius: '8px' }} />
                   </div>
-                  <div style={{height: '60vh'}} >
+                  <div >
                     <img width='100%' height='100%' src={state.image}  alt='sds' style={{ borderRadius: '8px' }} />
                   </div>
                 </Carousel>
