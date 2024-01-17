@@ -12,12 +12,21 @@ import grilladePorc from '../../assets/images/grilladePorc.jpg';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { menuDatas } from '../../datas'
+import { UseDispatch, useDispatch } from 'react-redux';
+import { pannier } from '../../redux/reducers/rootReducer';
 
 const Menu = () => {
   const [value, setValue] = useState('1');
   const matches = useMediaQuery('(min-width:500px)');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   console.log(menuDatas);
+
+  const handleAdd = (index, aliment)=>{
+    dispatch(pannier({ menuData: menuDatas[index], aliment: aliment }));
+  }
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -88,7 +97,7 @@ const Menu = () => {
                                   <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>Ndolet au plantin mur avec crevete</Typography>
                                   <Button onClick={(e) => {
                                     e.stopPropagation();
-                                    console.log('ndole');
+                                    handleAdd(0, 'Ndole');
                                   }} size='small' variant='contained'>Ajouter</Button>
                                 </Stack>
                               </Stack>
@@ -108,7 +117,10 @@ const Menu = () => {
                                 <Divider />
                                 <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
                                   <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>mai de pistache avec baton de manioc</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
+                                  <Button  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleAdd(2, 'Mai de pistache');
+                                  }}  size='small' variant='contained'>Ajouter</Button>
                                 </Stack>
                               </Stack>
                             </Box>
@@ -133,7 +145,10 @@ const Menu = () => {
                                 <Divider />
                                 <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
                                   <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>l'Okok avec baton de manioc</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
+                                  <Button  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleAdd(1, 'Okok');
+                                  }}  size='small' variant='contained'>Ajouter</Button>
                                 </Stack>
                               </Stack>
                             </Box>
@@ -152,7 +167,10 @@ const Menu = () => {
                                 <Divider />
                                 <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
                                   <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>Taro avec peau</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
+                                  <Button  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleAdd(3, 'Taro');
+                                  }}  size='small' variant='contained'>Ajouter</Button>
                                 </Stack>
                               </Stack>
                             </Box>
@@ -186,7 +204,10 @@ const Menu = () => {
                                 <Divider />
                                 <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
                                   <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>Grillade a la viande</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
+                                  <Button  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleAdd(4, 'Viande');
+                                  }}  size='small' variant='contained'>Ajouter</Button>
                                 </Stack>
                               </Stack>
                             </Box>
@@ -205,7 +226,10 @@ const Menu = () => {
                                 <Divider />
                                 <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
                                   <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>grillade au poulet</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
+                                  <Button  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleAdd(6, 'Poulet');
+                                  }}  size='small' variant='contained'>Ajouter</Button>
                                 </Stack>
                               </Stack>
                             </Box>
@@ -230,7 +254,10 @@ const Menu = () => {
                                 <Divider />
                                 <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
                                   <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>Grillade au canard</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
+                                  <Button  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleAdd(5, 'Canard');
+                                  }}  size='small' variant='contained'>Ajouter</Button>
                                 </Stack>
                               </Stack>
                             </Box>
@@ -249,7 +276,10 @@ const Menu = () => {
                                 <Divider />
                                 <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
                                   <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>Grillade au porc</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
+                                  <Button  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleAdd(7, 'Porc');
+                                  }}  size='small' variant='contained'>Ajouter</Button>
                                 </Stack>
                               </Stack>
                             </Box>
@@ -260,90 +290,7 @@ const Menu = () => {
                   </Grid>
                 </div>
               </TabPanel>
-              {/* <TabPanel value="3" sx={{ p: { xs: 1, sm: 1, md: 0 } }}>
-                <Typography sx={{ textAlign: 'center', color: '#676775' }}>Menu</Typography>
-                <Typography sx={{ textAlign: 'center', color: '#ce1212', fontWeight: 600, fontSize: "36px" }}>Végétarien</Typography>
-                <div className='animate__animated animate__fadeIn' >
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={12} md={6}>
-                      <Box mt={4} >
-                        <Stack spacing={2}>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', }} >
-                            <Avatar src={ndole} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
-                            <Box width='100%' pl={2} display='flex' flexDirection='column'>
-                              <Stack direction='column'>
-                                <Stack pb={1} direction='row' alignItems='center' spacing={3} display='flex'>
-                                  <Typography variant='h6' fontSize={18}>Ndole</Typography>
-                                  <Typography variant='h6' fontSize={{ xs: 15, sm: 15, md: 18 }} sx={{ color: '#ce1212' }} fontWeight={400}>2000 FRCFA</Typography>
-                                </Stack>
-                                <Divider />
-                                <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
-                                  <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>Ndolet au plantin mur avec crevete</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
-                                </Stack>
-                              </Stack>
-                            </Box>
-                          </Paper>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', }} >
-                            <Avatar src={ndole} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
-                            <Box width='100%' pl={2} display='flex' flexDirection='column'>
-                              <Stack direction='column'>
-                                <Stack pb={1} direction='row' alignItems='center' spacing={3} display='flex'>
-                                  <Typography variant='h6' fontSize={18}>Ndole</Typography>
-                                  <Typography variant='h6' fontSize={{ xs: 15, sm: 15, md: 18 }} sx={{ color: '#ce1212' }} fontWeight={400}>2000 FRCFA</Typography>
-                                </Stack>
-                                <Divider />
-                                <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
-                                  <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>Ndolet au plantin mur avec crevete</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
-                                </Stack>
-                              </Stack>
-                            </Box>
-                          </Paper>
-                        </Stack>
-                      </Box>
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={6}>
-                      <Box mt={4} >
-                        <Stack spacing={2}>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', }} >
-                            <Avatar src={ndole} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
-                            <Box width='100%' pl={2} display='flex' flexDirection='column'>
-                              <Stack direction='column'>
-                                <Stack pb={1} direction='row' alignItems='center' spacing={3} display='flex'>
-                                  <Typography variant='h6' fontSize={18}>Ndole</Typography>
-                                  <Typography variant='h6' fontSize={{ xs: 15, sm: 15, md: 18 }} sx={{ color: '#ce1212' }} fontWeight={400}>2000 FRCFA</Typography>
-                                </Stack>
-                                <Divider />
-                                <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
-                                  <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>Ndolet au plantin mur avec crevete</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
-                                </Stack>
-                              </Stack>
-                            </Box>
-                          </Paper>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', }} >
-                            <Avatar src={ndole} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
-                            <Box width='100%' pl={2} display='flex' flexDirection='column'>
-                              <Stack direction='column'>
-                                <Stack pb={1} direction='row' alignItems='center' spacing={3} display='flex'>
-                                  <Typography variant='h6' fontSize={18}>Ndole</Typography>
-                                  <Typography variant='h6' fontSize={{ xs: 15, sm: 15, md: 18 }} sx={{ color: '#ce1212' }} fontWeight={400}>2000 FRCFA</Typography>
-                                </Stack>
-                                <Divider />
-                                <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
-                                  <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>Ndolet au plantin mur avec crevete</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
-                                </Stack>
-                              </Stack>
-                            </Box>
-                          </Paper>
-                        </Stack>
-                      </Box>
-                    </Grid>
-                  </Grid>
-                </div>
-              </TabPanel> */}
+
             </TabContext>
           </Box>
         </>

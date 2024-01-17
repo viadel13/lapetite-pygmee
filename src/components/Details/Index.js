@@ -36,7 +36,7 @@ const Details = () => {
     <Box>
       <Container disableGutters sx={{ maxWidth: { xs: 'xs', sm: 'md', md: 'xs', lg: 'lg', xl: 'xs' } }}>
         <Box width='100%' mt={3} mb={3} sx={{ padding: { xs: '0 8px', sm: '0 8px', md: 0 } }}>
-          <Grid container spacing={5}>
+          <Grid container>
             <Grid item xs={12} sm={6}>
               <Box width='100%'  display='flex' alignItems='center' justifyContent='center'>
                 <Carousel showIndicators={false} showArrows={false} emulateTouch={false} className='crsl' >

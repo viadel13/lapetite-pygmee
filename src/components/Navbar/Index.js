@@ -4,8 +4,12 @@ import { keyframes } from '@mui/system';
 import { ShoppingCartOutlined } from "@mui/icons-material";
 import DrawerMenu from "../DrawerMenu/Index";
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import DrawerPanier from "../DrawerPanier/Index";
 
 const Navbar = () => {
+  const panier = useSelector((state) => state.petitePygmee.pannier);
+
   const underlineAnimation = keyframes({
     '0%': { width: '0%' },
     '100%': { width: '100%' },
@@ -109,15 +113,11 @@ const Navbar = () => {
               </ListItem>
             </List>
           </Stack>
-          <Stack sx={{display: { xs: 'flex', sm: 'flex', md: 'none' } }}>
-            <Badge badgeContent={4} color="error">
-              <ShoppingCartOutlined sx={{ color: 'black' }} />
-            </Badge>
+          <Stack sx={{ display: { xs: 'flex', sm: 'flex', md: 'none' } }}>
+            <DrawerPanier panier={panier.length} />
           </Stack>
           <Stack direction='row' alignItems='center' spacing={4} sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }} >
-            <Badge badgeContent={4} color="error">
-              <ShoppingCartOutlined sx={{ color: 'black' }} />
-            </Badge>
+            <DrawerPanier panier={panier.length} />
             <Button size='small' variant='contained' sx={{ color: 'white', backgroundColor: '#ce1212', padding: '8px 20px', borderRadius: '50px', '&:hover': { backgroundColor: '#ce1212', color: 'white' }, textTransform: 'capitalize' }}>Connexion</Button>
           </Stack>
 
