@@ -9,18 +9,23 @@ import grillade1 from '../../assets/images/grillade1.jpg';
 import grillade2 from '../../assets/images/grillade2.jpeg';
 import grilladeCanard from '../../assets/images/grilladeCanard.jpg';
 import grilladePorc from '../../assets/images/grilladePorc.jpg';
-
-
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { menuDatas } from '../../datas'
 
 const Menu = () => {
   const [value, setValue] = useState('1');
   const matches = useMediaQuery('(min-width:500px)');
-
-
+  const navigate = useNavigate();
+  console.log(menuDatas);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const handleNavigate = (link, index) => {
+    navigate(`/menu/${link}`, { state:  menuDatas[index]  });
+  }
+
   return (
     <Box mb={4}>
       <Container disableGutters sx={{ maxWidth: { xs: 'xs', sm: 'md', md: 'xs', lg: 'lg', xl: 'xs' } }}>
@@ -55,7 +60,6 @@ const Menu = () => {
                 >
                   <Tab label="Traditionnel" value="1" />
                   <Tab label="Grillades" value="2" />
-                  <Tab label="Végétarien" value="3" />
                 </TabList>
               </Box>
 
@@ -67,7 +71,11 @@ const Menu = () => {
                     <Grid item xs={12} sm={12} md={6}>
                       <Box mt={4} >
                         <Stack spacing={2}>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', cursor: 'pointer', "&:hover": {border: '1px solid red'} }} >
+                          <Paper onClick={(e) => {
+                            e.stopPropagation();
+                            handleNavigate('ndole', 0);
+                          }}
+                            elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', cursor: 'pointer', "&:hover": { border: '1px solid red' } }} >
                             <Avatar src={ndole} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
                             <Box width='100%' pl={2} display='flex' flexDirection='column'>
                               <Stack direction='column'>
@@ -78,12 +86,18 @@ const Menu = () => {
                                 <Divider />
                                 <Stack pt={1} spacing={1} direction='column' alignItems='flex-start' display='flex'>
                                   <Typography sx={{ color: '#676775', fontStyle: 'italic' }}>Ndolet au plantin mur avec crevete</Typography>
-                                  <Button size='small' variant='contained'>Ajouter</Button>
+                                  <Button onClick={(e) => {
+                                    e.stopPropagation();
+                                    console.log('ndole');
+                                  }} size='small' variant='contained'>Ajouter</Button>
                                 </Stack>
                               </Stack>
                             </Box>
                           </Paper>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', }} >
+                          <Paper onClick={(e) => {
+                            e.stopPropagation();
+                            handleNavigate('pistache', 2);
+                          }} elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)',"&:hover": { border: '1px solid red'}, cursor: 'pointer' }} >
                             <Avatar src={pistage} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
                             <Box width='100%' pl={2} display='flex' flexDirection='column'>
                               <Stack direction='column'>
@@ -105,7 +119,10 @@ const Menu = () => {
                     <Grid item xs={12} sm={12} md={6}>
                       <Box mt={4}>
                         <Stack spacing={2}>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', cursor: 'pointer' }} >
+                          <Paper  onClick={(e) => {
+                            e.stopPropagation();
+                            handleNavigate('okok', 1);
+                          }} elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', "&:hover": { border: '1px solid red'}, cursor: 'pointer' }} >
                             <Avatar src={kok} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
                             <Box width='100%' pl={2} display='flex' flexDirection='column'>
                               <Stack direction='column'>
@@ -121,7 +138,10 @@ const Menu = () => {
                               </Stack>
                             </Box>
                           </Paper>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', }} >
+                          <Paper  onClick={(e) => {
+                            e.stopPropagation();
+                            handleNavigate('taro', 3);
+                          }} elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)',"&:hover": { border: '1px solid red'}, cursor: 'pointer' }} >
                             <Avatar src={taro} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
                             <Box width='100%' pl={2} display='flex' flexDirection='column'>
                               <Stack direction='column'>
@@ -152,7 +172,10 @@ const Menu = () => {
                     <Grid item xs={12} sm={12} md={6}>
                       <Box mt={4} >
                         <Stack spacing={2}>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', }} >
+                          <Paper  onClick={(e) => {
+                            e.stopPropagation();
+                            handleNavigate('Viande', 4);
+                          }} elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)',"&:hover": { border: '1px solid red'}, cursor: 'pointer'  }} >
                             <Avatar src={grillade1} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
                             <Box width='100%' pl={2} display='flex' flexDirection='column'>
                               <Stack direction='column'>
@@ -168,7 +191,10 @@ const Menu = () => {
                               </Stack>
                             </Box>
                           </Paper>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', }} >
+                          <Paper  onClick={(e) => {
+                            e.stopPropagation();
+                            handleNavigate('poulet', 6);
+                          }} elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)',"&:hover": { border: '1px solid red'}, cursor: 'pointer'  }} >
                             <Avatar src={grillade2} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
                             <Box width='100%' pl={2} display='flex' flexDirection='column'>
                               <Stack direction='column'>
@@ -190,7 +216,10 @@ const Menu = () => {
                     <Grid item xs={12} sm={12} md={6}>
                       <Box mt={4} >
                         <Stack spacing={2}>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', }} >
+                          <Paper  onClick={(e) => {
+                            e.stopPropagation();
+                            handleNavigate('canard', 5);
+                          }} elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)',"&:hover": { border: '1px solid red'}, cursor: 'pointer'  }} >
                             <Avatar src={grilladeCanard} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
                             <Box width='100%' pl={2} display='flex' flexDirection='column'>
                               <Stack direction='column'>
@@ -206,8 +235,11 @@ const Menu = () => {
                               </Stack>
                             </Box>
                           </Paper>
-                          <Paper elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', }} >
-                            <Avatar src={ndole} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
+                          <Paper  onClick={(e) => {
+                            e.stopPropagation();
+                            handleNavigate('porc', 7);
+                          }} elevation={0} sx={{ width: '100%', display: 'flex', p: '25px 8px', boxShadow: '0px 4px 4px rgba(33, 33, 33, 0.1)', "&:hover": { border: '1px solid red'}, cursor: 'pointer' }} >
+                            <Avatar src={grilladePorc} sx={{ borderRadius: 0, width: '100px', height: '90px' }} alt='ndole' />
                             <Box width='100%' pl={2} display='flex' flexDirection='column'>
                               <Stack direction='column'>
                                 <Stack pb={1} direction='row' alignItems='center' spacing={3} display='flex'>
@@ -228,7 +260,7 @@ const Menu = () => {
                   </Grid>
                 </div>
               </TabPanel>
-              <TabPanel value="3" sx={{ p: { xs: 1, sm: 1, md: 0 } }}>
+              {/* <TabPanel value="3" sx={{ p: { xs: 1, sm: 1, md: 0 } }}>
                 <Typography sx={{ textAlign: 'center', color: '#676775' }}>Menu</Typography>
                 <Typography sx={{ textAlign: 'center', color: '#ce1212', fontWeight: 600, fontSize: "36px" }}>Végétarien</Typography>
                 <div className='animate__animated animate__fadeIn' >
@@ -311,7 +343,7 @@ const Menu = () => {
                     </Grid>
                   </Grid>
                 </div>
-              </TabPanel>
+              </TabPanel> */}
             </TabContext>
           </Box>
         </>
