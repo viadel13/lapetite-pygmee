@@ -96,3 +96,9 @@ body{
   border-radius: 8px;
   padding: 0;
 }
+.carousel .slide {
+  height: 50vh;
+}
+.crsl{
+  width: 300px;
+}
