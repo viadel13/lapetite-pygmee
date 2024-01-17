@@ -40,13 +40,13 @@ const Details = () => {
             <Grid item xs={12} sm={6}>
               <Box width='100%'  display='flex' alignItems='center' justifyContent='center'>
                 <Carousel showIndicators={false} showArrows={false} emulateTouch={false} className='crsl' >
-                  <div style={{height: '100%'}}>
+                  <div style={{height: '80%'}}>
                     <img width='100%' height='100%' src={state.image} alt='sds' style={{ borderRadius: '8px' }} />
                   </div>
-                  <div style={{height: '100%'}} >
+                  <div style={{height: '80%'}} >
                     <img width='100%' height='100%' src={state.image}  alt='sds' style={{ borderRadius: '8px' }} />
                   </div>
-                  <div style={{height: '100%'}} >
+                  <div style={{height: '80%'}} >
                     <img width='100%' height='100%' src={state.image}  alt='sds' style={{ borderRadius: '8px' }} />
                   </div>
                 </Carousel>
