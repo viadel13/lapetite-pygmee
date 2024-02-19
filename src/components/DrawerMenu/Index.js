@@ -131,6 +131,15 @@ const DrawerMenu = () => {
         <ListItem disablePadding>
           <ListItemButton sx={{ '&:hover': { background: 'transparent', } }} disableRipple >
             <ListItemText primary={
+              <CustomStyled to="/services">
+                Services
+              </CustomStyled>
+            } />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton sx={{ '&:hover': { background: 'transparent', } }} disableRipple >
+            <ListItemText primary={
               <CustomStyled to="/galerie">
                 Galerie
               </CustomStyled>

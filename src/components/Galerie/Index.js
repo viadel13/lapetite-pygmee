@@ -1,10 +1,22 @@
 import { Avatar, Box, Container, Skeleton, Stack, Typography } from '@mui/material'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import gal1 from '../../assets/images/gal1.jpg'
-import gal2 from '../../assets/images/gal2.jpg'
-import gal4 from '../../assets/images/gal4.jpg'
-import gal5 from '../../assets/images/gal5.jpg'
-import gal6 from '../../assets/images/gal6.jpg'
+import gal1 from '../../assets/images/gal1.jpeg'
+import gal2 from '../../assets/images/gal2.jpeg'
+import gal3 from '../../assets/images/gal2.jpeg'
+import gal4 from '../../assets/images/gal4.jpeg'
+import gal5 from '../../assets/images/gal5.jpeg'
+import gal6 from '../../assets/images/gal6.jpeg'
+import gal7   from '../../assets/images/gal7.jpeg'
+import gal8 from '../../assets/images/gal8.jpeg'
+import gal9 from '../../assets/images/gal9.jpeg'
+import gal10 from '../../assets/images/gal10.jpeg'
+import gal11 from '../../assets/images/gal11.jpeg'
+import gal12 from '../../assets/images/gal12.jpeg'
+import gal13 from '../../assets/images/gal13.jpeg'
+import gal14 from '../../assets/images/gal14.jpeg'
+import gal15 from '../../assets/images/gal15.jpeg'
+import gal16 from '../../assets/images/gal16.jpeg'
+import gal17 from '../../assets/images/gal17.jpeg'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -31,9 +43,21 @@ const Galerie = () => {
   const images = [
     { src: gal1, alt: 'gal1' },
     { src: gal2, alt: 'gal2' },
+    { src: gal3, alt: 'gal2' },
     { src: gal4, alt: 'gal4' },
     { src: gal5, alt: 'gal5' },
-    { src: gal6, alt: 'gal6' },
+    { src: gal6, alt: 'gal5' },
+    { src: gal7, alt: 'gal6' },
+    { src: gal8, alt: 'gal6' },
+    { src: gal9, alt: 'gal6' },
+    { src: gal10, alt: 'gal6' },
+    { src: gal11, alt: 'gal6' },
+    { src: gal12, alt: 'gal6' },
+    { src: gal13, alt: 'gal6' },
+    { src: gal14, alt: 'gal6' },
+    { src: gal15, alt: 'gal6' },
+    { src: gal16, alt: 'gal6' },
+    { src: gal17, alt: 'gal6' },
   ];
 
   const handleImageLoad = () => {

@@ -97,6 +97,13 @@ const Navbar = () => {
                   />
                   <ListItemText
                     primary={
+                      <CustomStyled to="/services">
+                        Services
+                      </CustomStyled>
+                    }
+                  />
+                  <ListItemText
+                    primary={
                       <CustomStyled to="/galerie">
                         Galerie
                       </CustomStyled>

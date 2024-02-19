@@ -6,6 +6,13 @@ import poulet from './assets/images/grillade2.jpeg'
 import canard from './assets/images/grilladeCanard.jpg'
 import porc from './assets/images/grilladePorc.jpg'
 import viande from './assets/images/grillade1.jpg'
+import menu from './assets/images/menu.jpeg'
+import menu1 from './assets/images/menu6.jpeg'
+import menu2 from './assets/images/menu2.jpeg'
+import menu4 from './assets/images/menu4.jpeg'
+import menu5 from './assets/images/menu5.jpeg'
+
+import menu7 from './assets/images/menu7.jpeg'
 
 export const menuDatas = [
   {
@@ -47,6 +54,53 @@ export const menuDatas = [
     details: 'Le taro est souvent préparé de différentes manières dans la cuisine camerounaise. Il peut être bouilli, cuit à la vapeur ou utilisé comme ingrédient principal dans des plats traditionnels.'
   },
   {
+    menu: 'Traditionnel',
+    image: menu1,
+    aliment: 'Mbol',
+    avis: 3,
+    prix: 1500,
+    quantite: 1,
+    details: '...'
+  },
+  {
+    menu: 'Traditionnel',
+    image: menu2,
+    aliment: 'Couscous riz',
+    avis: 4,
+    prix: 1500,
+    quantite: 1,
+    details: '...'
+  },
+  {
+    menu: 'Traditionnel',
+    image: menu4,
+    aliment: 'Koko',
+    avis: 4,
+    prix: 1500,
+    quantite: 1,
+    details: '...'
+  },
+  {
+    menu: 'Traditionnel',
+    image: menu5,
+    aliment: 'Viande',
+    avis: 3,
+    prix: 2000,
+    quantite: 1,
+    details: '...'
+  },
+
+  {
+    menu: 'Traditionnel',
+    image: menu7,
+    aliment: 'Chenille',
+    avis: 3,
+    prix: 2000,
+    quantite: 1,
+    details: '...'
+  },
+
+  {
     menu: 'Grillade',
     image: viande,
     aliment: 'Viande',
@@ -73,7 +127,6 @@ export const menuDatas = [
     quantite: 1,
     details: 'La viande de poulet est une des viandes les plus consommées à travers le monde, appréciée pour sa polyvalence, sa saveur délicate et sa texture tendre. Elle est obtenue à partir de la chair musculaire de poulets, des oiseaux de basse-cour élevés spécifiquement pour la consommation de viande'
   },
-
   {
     menu: 'Grillade',
     image: porc,
@@ -82,6 +135,16 @@ export const menuDatas = [
     prix: 3000,
     quantite: 1,
     details: 'La viande de porc est une viande provenant du porc, un mammifère domestiqué élevé pour la consommation humaine. Cette viande est appréciée pour sa saveur riche et sa texture polyvalente, ce qui la rend adaptée à une variété de préparations culinaires. '
+  },
+  
+  {
+    menu: 'Grillade',
+    image: menu,
+    aliment: 'Frites de plantains poulet',
+    avis: 4,
+    prix: 4000,
+    quantite: 1,
+    details: '... '
   },
 
 ]

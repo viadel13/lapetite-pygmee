@@ -1,7 +1,7 @@
 import { useParams, useLocation } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import gal1 from '../../assets/images/gal1.jpg'
+
 import { Box, Button, ButtonGroup, Container, Divider, Grid, Rating, Stack, Typography } from '@mui/material';
 import { AddShoppingCart, ShoppingBag, Star } from '@mui/icons-material';
 import { useEffect, useState } from 'react';

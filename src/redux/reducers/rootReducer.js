@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     pannier: [],
-
 }
 
 const petitePygmeeSlice = createSlice({

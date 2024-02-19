@@ -43,8 +43,6 @@ const Apropos = () => {
                 justifyContent='center'
                 alignItems='center'
               >
-
-
                 <Box
                   display='flex'
                   alignItems="flex-end"
@@ -59,9 +57,9 @@ const Apropos = () => {
                   }}
                 >
 
-                  {
+                  {/* {
                     !loadImage && <Blurhash hash={blurhashValue} style={{display:'block', width: '100%', height: '100%'}}/>
-                  }
+                  } */}
 
                   <img
                     src={heroIm}
