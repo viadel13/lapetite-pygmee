@@ -148,7 +148,7 @@ const ModalEm = ({ setModal, openModal }) => {
                   onChange={formik.handleChange}
                   value={formik.values.quantite}
                   error={formik.touched.quantite && formik.errors.quantite ? true : false}
-                  placeholder="Nombre de personnes"
+                  placeholder="quantite"
                 />
                 {formik.touched.quantite && formik.errors.quantite && <FormHelperText sx={{ color: 'red' }}>{formik.errors.quantite}</FormHelperText>}
             </div>
