@@ -72,7 +72,7 @@ const Apropos = () => {
 
                   <Paper sx={{ position: 'absolute', mb: '10px', padding: '40px', width: '80%', textAlign: 'center', fontWeight: 700, fontSize: '18px', backgroundColor: 'rgba(255, 255, 255, 0.7)' }}>
                     <Typography variant='h4'>Reservation</Typography>
-                    <Typography variant='p' sx={{ color: '#ce1212' }}>+237 696746857</Typography>
+                    <Typography variant='p' sx={{ color: '#ce1212' }}>+237 690168707</Typography>
                   </Paper>
                 </Box>
 
